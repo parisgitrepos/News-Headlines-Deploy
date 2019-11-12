@@ -1,3 +1,3 @@
 ### News Headlines Deploy
-Status: Not Deployed  
-Link: Unknown
+Status: Deployed  
+Link: https://agile-ravine-77708.herokuapp.com/
