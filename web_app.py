@@ -16,7 +16,7 @@ def index():
             login = Auth()
             login = login.login(email = email, password = password)
             if login[0] == 400:
-                return render_template('login_page.html', status = login[2], title = 'My Daily News - Login')
+                return render_template('login_page.html', status = login[1], title = 'My Daily News - Login')
             elif login[0] == 200:
                 news = News_Headlines()
                 tech = news.tech_news()
