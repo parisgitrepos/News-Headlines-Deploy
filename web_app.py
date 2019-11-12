@@ -8,10 +8,7 @@ app = Flask(__name__, template_folder='html_templates')
 @app.route('/', methods = ['GET', 'POST'])
 def index():
     while True:
-        if request.method == 'GET':
-            return render_template('login_page.html', status = '', title = 'My Daily News - Login')
-        
-        elif request.cookies.get('email') != None:
+        if request.cookies.get('email') != None:
             email = request.cookies.get('email')
             password = request.cookies.get('password')
             login = Auth()
@@ -35,6 +32,9 @@ def index():
                                 India = India[0], India_link = India[1], world = world[0], world_link = world[1])
             elif login[0] == 400:
                 return render_template('login_page.html', status = login[1], title = 'My Daily News - Login')
+        
+        elif request.method == 'GET':
+            return render_template('login_page.html', status = '', title = 'My Daily News - Login')
             
         elif request.method == 'POST':
             email = request.form['email']
@@ -42,10 +42,7 @@ def index():
             login = Auth()
             login = login.login(email = email, password = password)
             
-            if login[0] == 400:
-                return render_template('login_page.html', status = login[1], title = 'My Daily News - Login')
-            
-            elif login[0] == 200 and request.form['remember'] == 'Yes':
+            if login[0] == 200 and request.form['remember'] == 'Yes':
                 news = News_Headlines()
                 tech = news.tech_news()
                 business = news.business_news()
@@ -64,6 +61,10 @@ def index():
                 page.set_cookie('email', email)
                 page.set_cookie('password', password)
                 return page
+            
+            elif login[0] == 400:
+                return render_template('login_page.html', status = login[1], title = 'My Daily News - Login')
+            
                             
             elif login[0] == 200:
                 news = News_Headlines()
