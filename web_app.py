@@ -39,8 +39,21 @@ def index():
                 
 @app.route('/signup', methods = ['GET', 'POST'])
 def signup():
-    return render_template('sign-up_page.html')
-
+    while True:
+        if request.method == 'GET':
+            status = ''
+            return render_template('sign-up_page.html', status = status)
+        elif request.method == 'POST':
+            email = request.form['email']
+            password = request.form['password']
+            sign_up = Auth()
+            sign_up = sign_up.signup(email, password)
+            if sign_up[0] == 400:
+                status = sign_up[1]
+                return render_template('sign-up_page.html', status = status)
+            elif sign_up[0] == 200:
+                status = 'Success!'
+                return render_template('sign-up_page.html', status = status)
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port = int(os.getenv('PORT')))
