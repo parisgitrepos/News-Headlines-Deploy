@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, make_response
 from news_headlines import News_Headlines
 from authentication import Auth
 import os
