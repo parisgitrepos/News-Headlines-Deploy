@@ -21,7 +21,7 @@ class Auth:
         web_api_key = self.web_api_key
         login_endpoint = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=' + web_api_key
 
-        json = {'email':email, 'password':password}
+        json = {'email':email, 'password':password, 'returnSecureToken':'true'}
 
         r = requests.post(login_endpoint, json = json)
 
