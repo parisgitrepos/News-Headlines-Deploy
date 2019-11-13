@@ -39,4 +39,4 @@ class Auth:
         if r.status_code == 200:
             return [200, refresh_token]
         elif r.status_code == 400:
-            return 400
+            return [400, 'ERROR']
