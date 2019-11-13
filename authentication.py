@@ -31,3 +31,12 @@ class Auth:
             return [200, r.json()['refreshToken']]
         else:
             return ['UNKNOWN']
+            
+    def refresh_token(self, token):
+        endpoint = 'https://securetoken.googleapis.com/v1/token?key=' + self.web_api_key
+        json = {'refresh_token':token}
+        r = requests.post(endpoint, json = json)
+        if r.status_code == 200:
+            return [200, refresh_token]
+        elif r.status_code == 400:
+            return 400
