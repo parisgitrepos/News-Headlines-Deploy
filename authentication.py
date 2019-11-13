@@ -37,6 +37,6 @@ class Auth:
         json = {'grant_type':'refresh_token', 'refresh_token':token}
         r = requests.post(endpoint, json = json)
         if r.status_code == 200:
-            return [200, r.json()[refresh_token]]
+            return [200, r.json()['refresh_token']]
         elif r.status_code == 400:
             return [400, 'ERROR']
