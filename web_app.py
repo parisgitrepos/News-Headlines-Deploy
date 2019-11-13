@@ -43,7 +43,7 @@ def index():
             password = request.form['password']
             login = Auth()
             login = login.login(email = email, password = password)
-            token = login[2]
+            token = login[1]
             
             if login[0] == 200 and request.form['remember'] == 'Yes':
                 news = News_Headlines()
