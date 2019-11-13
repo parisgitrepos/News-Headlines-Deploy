@@ -28,7 +28,6 @@ class Auth:
         if r.status_code == 400:
             return [400, r.json()['error']['message']]
         elif r.status_code == 200:
-            print(r.json()) # Temporary
             return [200, r.json()['refreshToken']]
         else:
             return ['UNKNOWN']
