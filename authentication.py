@@ -28,6 +28,6 @@ class Auth:
         if r.status_code == 400:
             return [400, r.json()['error']['message']]
         elif r.status_code == 200:
-            return [200, r.json()['idToken']]
+            return [200, r.json()['refreshToken']]
         else:
             return ['UNKNOWN']
