@@ -1,20 +1,65 @@
+from news_headlines import News_Headlines
 import datetime
 
 hour = int(datetime.time().strftime('%H'))
 hour -= 5
 
+news = News_Headlines()
+tech = news.tech_news()
+business = news.business_news()
+political = news.political_news()
+US_CA = news.US_CA_news()
+ME = news.ME_news()
+EU = news.EU_news()
+UK = news.UK_news()
+Asia = news.Asia_news()
+India = news.India_news()
+world = news.world_news()
+
 while True:
     if hour == 0:
-        pass
-        # Update variables
+        tech = news.tech_news()
+        business = news.business_news()
+        political = news.political_news()
+        US_CA = news.US_CA_news()
+        ME = news.ME_news()
+        EU = news.EU_news()
+        UK = news.UK_news()
+        Asia = news.Asia_news()
+        India = news.India_news()
+        world = news.world_news()
     elif hour == 6:
-        pass
-        # Update variables
+        tech = news.tech_news()
+        business = news.business_news()
+        political = news.political_news()
+        US_CA = news.US_CA_news()
+        ME = news.ME_news()
+        EU = news.EU_news()
+        UK = news.UK_news()
+        Asia = news.Asia_news()
+        India = news.India_news()
+        world = news.world_news()
     elif hour == 12:
-        pass
-        # Update variables
+        tech = news.tech_news()
+        business = news.business_news()
+        political = news.political_news()
+        US_CA = news.US_CA_news()
+        ME = news.ME_news()
+        EU = news.EU_news()
+        UK = news.UK_news()
+        Asia = news.Asia_news()
+        India = news.India_news()
+        world = news.world_news()
     elif hour == 18:
-        pass
-        # Update variables
+        tech = news.tech_news()
+        business = news.business_news()
+        political = news.political_news()
+        US_CA = news.US_CA_news()
+        ME = news.ME_news()
+        EU = news.EU_news()
+        UK = news.UK_news()
+        Asia = news.Asia_news()
+        India = news.India_news()
+        world = news.world_news()
     else:
         pass
