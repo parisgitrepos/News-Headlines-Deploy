@@ -1,4 +1,5 @@
 from news_headlines import News_Headlines
+import time
 import datetime
 
 hour = int(datetime.time().strftime('%H'))
@@ -17,6 +18,7 @@ India = news.India_news()
 world = news.world_news()
 
 while True:
+    time.sleep(60)
     if hour == 0:
         tech = news.tech_news()
         business = news.business_news()
